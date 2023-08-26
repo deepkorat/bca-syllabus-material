@@ -1,0 +1,57 @@
+<!-- 5. Write a program to demonstrate the example of sending items selected from radio and checkbox to
+server asynchronously. -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<form>
+  <input type="radio" name="r" value="MALE" onchange="gender()">MALE
+  <input type="radio" name="r" value="FEMALE" onchange="gender()">FEMALE	
+  <p id="demo"></p>
+  <input type="checkbox" name="c" value="Coding" onclick="handleclick()">Coding
+  <input type="checkbox" name="c" value="Reading" onclick="handleclick()">Reading
+  <input type="checkbox" name="c" value="Gaming" onclick="handleclick()">Gaming
+  <p id="demo1"></p>
+
+</form>
+</body>
+<script>
+	const gender = ()=>{
+		const r = document.getElementsByName("r")
+		let val;
+		for(i=0;i<r.length;i++){
+			if(r[i].checked){
+              val = r[i].value;
+			}
+          }
+		const xml = new XMLHttpRequest();
+        xml.open("GET","5.php?val="+val,true)
+        xml.send();
+        xml.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+		 document.getElementById("demo").innerHTML=this.responseText;
+	  }
+    }
+}
+ const handleclick = ()=>{
+    	const c = document.getElementsByName('c');
+    	let val1 = "";
+    	for(i=0;i<c.length;i++){
+    		if(c[i].checked){
+    			val1=val1+c[i].value+"<br>"
+    		}
+    	}
+    	const xml = new XMLHttpRequest();
+        xml.open("GET","5.php?val1="+val1,true)
+        xml.send();
+        xml.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+		 document.getElementById("demo1").innerHTML=this.responseText;
+	  }
+    }
+    }
+</script>
+</html>

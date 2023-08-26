@@ -1,0 +1,80 @@
+1) Show Current System Date
+-> $date   (where $ sign is already present.)
+
+2) if we show current year calender.
+-> $cal
+
+3) if we show december month calender.
+-> $cal 10
+       |
+    (space)
+
+4) if we show december(month) 2021(year) calender.
+-> $cal 10 2022
+
+5) if we find that how many currently user logged in..?
+-> $who
+
+(This $who command given details like)
+Username :- Which user is logged In.
+Time     :- Which you can login.
+Terminal :- Which terminal you can logged In.
+
+6) How to make a new directory.
+-> $mkdir bca(Directory name)(press enter)
+
+7) Show current file and Directory.
+-> $ls
+
+8) How to change the directory.
+-> $cd bca(Directory's name)
+
+9) How to create unother fy,sy,ty directory inside bca directory.
+-> $bca$ mkdir fy sy ty
+
+10) how to show root directory.
+-> root directory is shown by / sign.
+
+11) cd . . 
+       | |
+meaning of first dote is your current directory.
+meaning of second dote is your parent directory.
+
+12) Create c derectory inside fy directory with given relative path.
+-> $ mkdir fy/c
+
+13) Create h1.txt file inside html directory which is inside fy direcotry.
+-> $ cat > fy/html / h1.txt
+
+14) what is diffrent between cat and echo.
+-> main diffrent between cat and echo is...
+-> cat is used for display content.
+-> echo is used for display message.
+
+15) How to display hello good morning message.
+-> $ echo "Hello Good morning" (press enter)
+
+16) if we change the password.
+-> passwd
+
+17) which command is used for mennual.
+-> man
+
+18) if we know about cat command that..?
+-> man cat
+
+19) what is use of |more 
+-> It is used if cat display more content and if we stop for reading than we use |more command.
+Example :- $man  cat|more
+
+20) how to create new file.
+-> cat > filename(.txt extentsion is not compalsory.)
+next line you write text which will be saved in that file 
+
+21) which command are used for save the given data into file/direcotry.
+-> ctrl + d
+-> ctrl + z
+
+22) How to show any file data.
+-> $cat smit.txt(filename with extension)
+

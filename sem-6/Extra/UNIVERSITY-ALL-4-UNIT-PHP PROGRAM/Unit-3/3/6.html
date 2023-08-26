@@ -1,0 +1,26 @@
+<!-- 6. Write a program to validate a blank field and also validate the length of the data entered(i.e.
+minimum length of 5). -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+String:<input type="text" id="str" onkeyup="handle()">
+<p id="demo"></p>
+</body>
+<script>
+	const handle = ()=>{
+		const x = document.getElementById("str").value
+		const xml = new XMLHttpRequest();
+		xml.open("GET","6.php?str="+x,true)
+		xml.send()
+		xml.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+		 document.getElementById("demo").innerHTML=this.responseText;
+		}
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,228 @@
+if (clear == true)
+            {
+                clear = false;
+                textBox1.Clear();
+            }
+
+ if (operation != " ")
+            {
+                button14_Click(sender, e);
+                operation = "";
+            }
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace calculator
+{
+    public partial class Form1 : Form
+    {
+        Double firstnum;
+        Double secondnum;
+        String operation;
+        Boolean clear;
+
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Clear();
+            }
+            if (((Button)sender).Text == "." && textBox1.Text.IndexOf(".") > 0)
+            {
+                return;
+            }
+            textBox1.Text = textBox1.Text + ((Button)sender).Text;
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+                firstnum = Convert.ToDouble(textBox1.Text);
+                textBox1.Text = "0";
+                //clear = true;
+                operation = "+";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            firstnum = Convert.ToDouble(textBox1.Text);
+             textBox1.Text = "0";
+            //clear = true;
+            operation = "-";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            firstnum = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+           // clear = true;
+            operation = "*"; 
+           
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            firstnum = Convert.ToDouble(textBox1.Text);
+             textBox1.Text = "0";
+           // clear = true;
+            operation = "/";
+            
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            secondnum = Convert.ToDouble(textBox1.Text);
+            Double result;
+
+            
+            
+            if(operation == "+")
+            {
+               result = firstnum + secondnum;
+               textBox1.Text = Convert.ToString(result);
+               firstnum = result;
+            }
+            if (operation == "-")
+            {
+                result = firstnum - secondnum;
+                textBox1.Text = Convert.ToString(result);
+                firstnum = result;
+            }
+            if (operation == "*")
+            {
+                result = firstnum * secondnum;
+                textBox1.Text = Convert.ToString(result);
+                firstnum = result;
+            }
+            if (operation == "/")
+            {
+                if (secondnum == 0)
+                {
+                    textBox1.Text = "Can not divied by 0";
+                }
+                else
+                {
+                    result = firstnum / secondnum;
+                    textBox1.Text = Convert.ToString(result);
+                    firstnum = result;
+                }
+            }
+            if (operation == "X^N")
+            {
+                textBox1.Text = Convert.ToString(Math.Pow(firstnum, secondnum));
+            }
+            
+            
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+             Single x =  Convert.ToSingle(textBox1.Text);
+             textBox1.Text = Convert.ToString(x * x);
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(Math.Sin(x));
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(Math.Cos(x));
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(Math.Tan(x));
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+
+            firstnum = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            operation = "X^N";
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(x * x * x );
+
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(Math.Sqrt(x));
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            Double t = 1;
+            for (Double i = 1; i <= x; i++)
+            {
+                t = t * i;
+            }
+
+            textBox1.Text = Convert.ToString(t);
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(Math.Log(x));
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            Single x = Convert.ToSingle(textBox1.Text);
+            textBox1.Text = Convert.ToString(Math.Log10(x));
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+          
+  
+
+
+
+
+
+
+    }
+}

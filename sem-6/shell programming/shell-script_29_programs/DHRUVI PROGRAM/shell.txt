@@ -1,0 +1,262 @@
+2) Write a script to find the complete path for any file.
+ans.....
+echo "enter file name"
+read fn
+locate $fn
+
+3) Write a shell script to execute following commands
+ Sort file abc.txt and save this sorted file inxyz.txt
+ Give an example of : To execute commands together without affecting result of 
+eachother.
+ How to print “thisis
+a three –line
+1. Textmessage”
+ Which command display version of theUNIX?
+ How would you get online help of catcommand?
+ans.....
+echo "sorting the file"
+sort -n sort.txt > xyz.txt
+
+echo "executing two command"
+who;ls
+
+echo -e "this is \n a three -line \n 1.text message"
+
+echo "the version of unix `uname -a`"
+echo "help of cat command"
+man cat
+
+4) Write a shell script to execute following commands
+ How would u display the hiddenfiles?
+ How delete directory withfiles?
+ How would user can do interactivecopying?
+ How would user can do interactive deletion offiles?
+ Explain two functionality of “mv” command withexample?
+ans......
+echo -e"\n 1.show hidden file \n 2.delete dir \n 3. do copy \n 4.delete file \n 5.mv command"
+
+echo "enter choice"
+read ch
+
+case $ch in
+        1) ls -a;;
+        2) echo "enter dir to delete"
+           read d
+           rm -ird $d;;
+        3) echo "enter 2 file"
+           read f1 f2
+           cp -i $f1 $f2;;
+        4) echo "enter file to delete"
+           read f
+           rm -i $f;;
+        5) echo "enter 2 file"
+           read f1 f2
+           mv $f1 $f2;;
+        *)echo "invalid choice";;
+esac
+
+5) write a shell script to execute following commands
+ Create a file called text and store name,age and address init.
+ Display the contents of the file text on thescreen.
+ Delete the directories mydir and newdir at oneshot.
+ Sort a numericfile?
+Page 16 | 40
+ Change the permissions for the file newtext to666.
+ans.....
+
+
+6) Write shell script that accept filename and displays last modification time if file 
+exists, otherwise display appropriate message.
+ans......
+echo "enter file name "
+read fn
+if [ -e $fn ]
+then
+      ls -l $fn | cut -d " " -f9
+else
+        echo "file dose not exite"
+fi
+
+7)  Write a shell script to display the login names that begin with ‘s’.
+ans......
+ who | grep ^s
+
+8) Write a shell script to remove the zero sized file from the current directory
+
+21)Write a shell script to change the suffix of all your *.txt files to .dat.
+ans.......................
+for i in *.dat
+do
+        f=`echo $i | cut -d "." -f1`
+        mv $i $f.txt
+done
+
+29)  Write a shell script to delete all the spaces from a given file.
+ans.............................
+
+ cat f22.txt | tr -d " "
+heloo
+howareyou
+1
+22
+3
+5
+7
+89
+heloo
+howareyou
+
+31)  Write a shell script to search for a given word in all the files given as the arguments on
+the command line.
+ans..................
+
+for i in *.txt
+do
+        grep $1 $i
+done
+
+32) Write a shell script that display last modified file in the current directory.
+ans...............
+clear
+echo `ls -lf |head -2 |tail -1`
+~             
+
+33) Write a script to display the permissions of the particular file.
+ans.............
+echo "enter file name"
+read fn
+
+ls -l $fn | cut -c 1-10
+           
+34)  Write a shell script to display the calendar in the following manner:
+i. Display the calendar of months m1 and m2 by ‘CAL m1, m2’ commandfile.
+ii. Display the calendar of the months from m1 to m2 by ‘CAL m1-m2’ 
+commandfile.
+ans.................
+  echo "this is for cal" $1 "and" $2
+cal $1 2023
+cal $2 2023
+
+echo "this is for cal" $1 "to" $2
+for i in $(seq $1 $2)
+do
+        cal $i 2023
+done
+
+35) Write a shell script to display the following menu for a particular file :
+i. Display all the words of a file in ascendingorder.
+ii. Display a file in descendingorder.
+iii. Toggle all the characters in thefile.
+iv. Display type of the file.
+
+ans...............................
+echo -e "\n 1.display words in ascendingorder \n2.diplay descendingorder \n 3.toggle char \n 4.type of file\n 5.revers"
+
+echo "enter your choice"
+read ch
+
+echo "enter file name"
+read fn
+
+case $ch in
+        1) sort $fn;;
+        2) sort -r $fn;;
+        3) cat $fn | tr '[a-z][A-Z]' '[A-Z][a-z]';;
+        4) file $fn;;
+        5) rev $fn;;
+        *) echo "invalid"
+esac
+
+36) Write a shell script to check whether the named user is currently logged in or not.
+ans......................
+
+echo "enter username"
+read name
+
+who | grep $name > /dev/null
+
+if [ $? -eq 0 ]
+then
+        echo "user is logged in.."
+else
+        echo "user not logged in.."
+fi
+
+
+37) Write a shell script to display the following menu for a particular file: 
+i.Display all the words of a file in ascending order.
+ii.Display a file in descending order. 
+iii.Display a file in reerse order. 
+iv.Toggle all the characters in the file 
+v.Display type of the file.
+
+ans...........................
+
+38) Write a shell script to find total no. Of users and finds out how many of them are
+currently logged in.
+
+ans..................................
+echo "total no of user in system"
+cat /etc/passwd | wc -l
+
+echo "logged in users are "
+who | wc -l
+
+39) Write a shell script that displays the directory information in the following format
+Filename Size Date Protection Owner
+
+ans....................
+echo "enter file name"
+read fn
+
+echo "Filename Size  Date  Protection  owner"
+echo "`ls -l $fn |cut -d ' ' -f10`  `ls -l $fn |cut -d ' ' -f5`  `ls -l $fn |cut -d ' ' -f 6,7`  `ls -l $fn |cut -d ' ' -f1`  `ls -l $fn | cut -d ' ' -f4`"
+
+40) Write a shell script to display five largest files from the current directory
+
+ans..................................
+ls -S | head -5
+
+
+41) Write a shell script that toggles contents of the file
+ans..............................
+
+echo "enter file name"
+read fn
+
+cat $fn | tr '[a-z][A-Z]' '[A-Z][a-z]'
+
+42) Write a shell script that report whether your friend has currently logged in or not. 
+If he has logged in then the shell script should send a message to his terminal 
+suggesting a dinner tonight. If you do have write permission to his terminal or if he 
+hasn’t logged in then such a message should be mailed to him about your dinner 
+proposal.
+
+ans....................
+
+44) Write a shell script to accept any character using command line and list all the 
+files starting with that character in the current directory.
+
+ans..........................
+
+45) Create a file called student containing roll-no, name and marks.
+a. Display the contents of the file sorted by marks in descending order
+b. Display the names of students in alphabetical order ignoring the case.
+c. Display students according to their roll nos.
+d. Sort file according to the second field and save it to file ‘names’.
+e. Display the list of students who scored between 70 and 80.
+
+ans...................
+
+echo -e "\n 1.sorted by marks in descending \n 2.name of student in order ignoring case \n 3.display student acording to roll no \n 4.sort file to second fild and save it in 'names' \n 5.display student who scored between 70 to 80"
+
+echo "enter your choice"
+read ch
+
+case $ch in
+        1) sort -k5 -r stu.txt;;
+        2) sort -k3 -i stu.txt;;
+        3) sort stu.txt;;
+        4) sort -k3 stu.txt > names2;;
+        5) awk '{if($5 > 70 && $5 < 80) print $5 $3}' stu.txt
+esac

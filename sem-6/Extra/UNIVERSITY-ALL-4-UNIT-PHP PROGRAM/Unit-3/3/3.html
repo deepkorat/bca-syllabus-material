@@ -1,0 +1,26 @@
+<!-- 3. Write a program for converting a string into uppercase using AJAX. -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+String :
+<input type="text" id="str" placeholder="Enter String Value" onkeyup="uppercase()" />
+<p id="demo"></p>
+</body>
+<script>
+ const uppercase = ()=>{
+  const val = document.getElementById("str").value
+  const xml = new XMLHttpRequest()
+  xml.open("GET","3.php?str="+val,true)
+  xml.send();
+  xml.onreadystatechange = function(){
+  	if(this.readyState===4 && this.status===200){
+  		document.getElementById("demo").innerHTML=this.responseText
+  	}
+  }
+ }
+</script>
+</html>

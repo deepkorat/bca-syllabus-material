@@ -1,0 +1,59 @@
+create table Salespeople(
+SNUM number(4) not null primary key,
+SNAME varchar(10) not null,
+CITY varchar(10) not null,
+COMM number(3,2) not null
+);
+
+
+create table Customer(
+CNUM number(4) not null primary key, 
+CNAME varchar(10) not null,
+CITY varchar(10) not null,
+RATING number(3) not null,
+SNUM number(4) REFERENCES Salespeople(SNUM)
+);
+
+
+create table Orders(
+ONUM number(4) not null primary key,
+AMOUNT number(7,2) not null, 
+ODATE date,
+CNUM REFERENCES Customer,
+SNUM REFERENCES Salespeople
+);
+
+
+
+insert into Salespeople values(&SNUM, '&SNAME', '&CITY', &COMM);
+insert into Customer values(&CNUM, '&CNAME', '&CITY', &RATING, &SNUM);
+insert into Orders values(&ONUM, &AMOUNT, '&ODATE', &CNUM, &SNUM);
+
+
+select max(amount) from orders where amount<>(select max(amount) from orders);
+
+select cnum from orders where amount=(select max(amount) from orders);
+
+select CNUM from orders where amount = (select max(amount) from orders where amount<>(select max(amount) from orders));
+
+select city, count(*) from salespeople group by city;
+
+select city from salespeople group by city having count(*) < 2;  
+
+select sname from salespeople where city IN (select city from salespeople group by city having count(*) < 2);  
+
+select  *  from salespeople group by city;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

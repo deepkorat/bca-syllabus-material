@@ -1,0 +1,132 @@
+CHAPTER -1
+----------	
+	
+IT      - Information technology
+ARPANET - Advanced Research Projects Agency Network
+CEO     - Chief executive officers
+CTO     - Chief technology officers
+NIST    - National Institute of Standards and Technology
+API     - Application Programming Interface
+SLA     - Service-level agreement
+IaaS    - Infrastructure-as-a-service
+PaaS    - Platform-as-a-service
+SaaS    - Software-as-a-service
+CRM     - Customer relationship management
+CSC     - Cloud service consumer
+CSP     - Cloud service provider
+PVM     - Parallel Virtual Machine
+MPI     - Message Passing Interface
+RIA     - Rich Internet Application
+SOC     - Service oriented Computing
+SOA     - Service oriented Architecture
+QOS     - Quantity of Service
+ASP     - Application Service Provider
+WS      - Web Services
+HTTP    - HayperText Transfer Protocol
+WSDL    - Web Service Description Language
+SOAP    - Simple Object Access Protocol
+W3C     - World Wide Web Consortium
+WWW     - World Wide Web
+MIT     - Massachusetts Institute of Technology
+AWS     - Amazon Web Services
+EC2     - Elastic Compute Cloud
+SDK     - Software Development Kit
+
+
+CHAPTER-2
+---------
+
+CPU   - Central Proccessing Unit
+SISD  - Single instruction single data
+SIMD  - Single instruction multiple data
+MISD  - Multiple instruction single data
+MIMD  - Multiple instruction multiple data
+IPC   - Interprocess Communication
+TCP
+IP    - Transmission Control Protocol/Internet Protocol
+UDP   - User Datagram Protocol
+GUI   - Graphical user Interface
+FIFO  - First-in/First-out
+PLC   - Programmable Logic Controller
+RPC   - Remote Procedure Call
+ISO   - International Standard Organization
+OSI   - Open System Interconnection
+MPI   - Message Passing Interface
+CORBA - common object request broker architecture
+COM   - component object model
+SOAP  - simple object access protocol
+REST  - representational state trasfer
+OMG   - object management group
+ORB   - object request broker
+IDL   - interface definition language
+IIOP  - internet inter ORB protocol
+POA  - portable object adapter
+DCOM  - distributed component object model
+RMI   - remote method invocation
+EAI   - enterprise application integration
+SOMF  - service-oriented modeling framework
+WSDL  - web service defination language
+UDDI  - universal description discovery and integration
+AJAX - asynchronous javascript and xml
+XAAS  - everything as a service
+IPC  - interprocess communication
+
+
+CHAPTER-3
+---------
+
+iaas  - infrastructure as a service
+vpn   - virtual private network
+jvm   - java virtual machine
+scsi  - small computer system interface
+qos   - quantity of service
+sla   - service level agreement
+ISA   - instruction set architecture
+ABI   - application binary interface
+VMM  - virtual machine manager
+KVM   - kernel based virutal machine
+LPAR  - logical partition
+VPS   - virtual private server
+CLI   - common language infrastructure
+JIT   - just in time
+wabi  - windows application binary interface
+vlan  - virtual LAN
+nat   - network address translation
+vdi   - virtual desktop infrastructure
+paas  - platform as a service
+xcp   - xen cloud platform
+mmu   - memory management unit
+tlb   - translation look-aside buffer
+usb   - universal serial bus
+gui   - graphical user interface
+posix - portable operating system interface
+cim   - common information model
+dcui  - direct client user interface
+vmi   - virtual machine interface
+msr   - memory service routine
+iommu - input/output memory management unit
+apic  - advanced programmable interrupt controller
+synIC - synthetic interrupt controller
+vsp   - virutal service provider
+vsc   - virtual service client
+vid   - virtualization infrastructure driver
+vmwp  - virutal machine worker process
+scvmm - system center virtual machine manager
+
+
+CHAPTER -4
+----------
+
+haas  - hardware as a service
+lamp  - linux apache mySQL and PHP
+saas  - software as a service
+siia  - software information & industry association
+asp   - application service provider
+tco   - total cost of ownership
+payg  - pay-as-you-go
+nist  - national institute of standard
+smes  - small and medium-sized enterprises
+ucsb  - university of california santa barbara
+ccif  - cloud computing interoperability forum
+ovf   - open virtualization format
+

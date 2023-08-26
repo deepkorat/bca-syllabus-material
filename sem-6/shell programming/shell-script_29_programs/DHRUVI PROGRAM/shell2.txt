@@ -1,0 +1,497 @@
+2 ) Write a script to find the complete 
+path for any file.
+ans.. echo "enter the file name"
+         read fn
+         ls -l $fn
+output..
+karan@DESKTOP-2RM7GGK:~/
+syllabus$ sh pro2.sh
+enter the file name
+karan.txt
+-rw-r--r-- 1 karan karan
+ 24 Jan  9 11:39 karan.txt
+
+4) Write a shell script to execute 
+following commands
+ How would u display the hiddenfiles?
+ How delete directory withfiles?
+ How would user can do
+ interactivecopying?
+ How would user can do 
+interactive deletion offiles?
+ Explain two functionality 
+of “mv” command withexample?
+ans..
+echo -e "1.display the hiddenfiles \n
+ 2.delete directory with files \n 
+3.do copy \n 
+4.interactive deletion of files \n
+ 5.use MV command \n 
+6.exit "
+
+echo -e "\n enter your choice"
+read ch
+
+case $ch in
+         1) echo "hiddenfiles"
+                ls -a;;
+        2)echo "enter directory to delete"
+          read fn
+
+          rm -irf $fn;;
+        3)echo "enter file name you want to copy"
+          read fn
+          echo "enter directory where you want to copy"
+          read fn2
+          cp $fn $fn2;;
+        4)echo "file name you want to delete"
+          read fn
+          rm -i $fn;;
+        5)echo "enter two file name"
+          read fn1 fn2
+          mv $fn1 $fn2;;
+        6)exit;;
+
+esac
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro4.sh
+-e 1.display the hiddenfiles
+ 2.delete directory with files
+ 3.do copy
+ 4.interactive deletion of files
+ 5.use MV command
+ 6.exit
+-e
+ enter your choice
+1
+hiddenfiles
+.  ..  .hid.txt  demo  demo2  karan.txt  pro2.sh  pro4.sh
+ enter your choice
+2
+enter directory to delete
+demo
+ enter your choice
+3
+enter file name you want to copy
+karan.txt
+enter directory where you want to copy
+demo2
+ enter your choice
+4
+file name you want to delete
+karan.txt
+rm: remove regular file 'karan.txt'? n
+ enter your choice
+5
+enter two file name
+karan.txt karan2.txt
+
+5) Write a shell script to execute following commands
+ Create a file called text and store name,age and address init.
+ Display the contents of the file text on thescreen.
+ Delete the directories mydir and newdir at oneshot.
+ Sort a numericfile
+ans..
+echo "1.create file called text 
+and store name,age and address in it"
+echo "2.display txtfile"
+echo "3.delete directories mydir 
+and newdir at one shot"
+echo "4.sort a number.txt"
+echo "5.change permission for 
+newtext to 666"
+echo "6.exit"
+echo "enter choice"
+read ch
+
+case $ch in
+        1) echo "enter file name"
+           read fn
+           cat > $fn;;
+        2) cat text.txt;;
+        3) echo "delete 2 directory "
+           read fn1 fn2
+           rmdir $fn1 $fn2;;
+        4) sort number.txt;;
+        5) echo "enter the file name"
+           read fn
+           chmod 666 $fn;;
+        6)exit;;
+esac
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro5.sh
+1.create file called text and store name,age and address in it
+2.display txtfile
+3.delete directories mydir and newdir at one shot
+4.sort a number.txt
+5.exit
+enter choice
+1
+enter file name
+text.txt
+name:karan
+age:100
+address:amdavad
+enter choice
+2
+name:karan
+age:100
+address:amdavad
+enter choice
+3
+delete 2 directory
+mydir newdir
+enter choice
+4
+1
+1
+2
+5
+7
+enter choice
+5
+enter the file name
+karan.txt
+karan@DESKTOP-2RM7GGK:~/syllabus$ ls -l
+total 0         
+-rw-rw-rw- 1 karan karan   24 Jan  9 12:20 karan.txt
+
+6 )Write shell script that accept 
+filename and displays last 
+modification time if file 
+exists, otherwise display 
+appropriate message.
+ans..
+echo "enter file name"
+read fn
+if [ -e $fn ]
+then
+        ls -l $fn
+else
+        echo "file does not exist"
+fi
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro6.sh
+enter file name
+karan.txt
+-rw-rw-rw- 1 karan karan 24 Jan  9 12:20 karan.txt
+
+8) Write a shell script to remove
+ the zero sized file from the current 
+directory
+ans..
+for i in  *
+do
+        if [ -s $i ]
+        then
+                echo "$i - not empty"
+        else
+                echo "$i - is empty"
+                rm -i $i
+        fi
+done
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro8.sh
+\ - not empty
+demo2 - not empty
+emp.txt - is empty
+rm: remove regular empty file 'emp.txt'? y
+karan.txt - not empty
+number.txt - not empty
+pro2.sh - not empty
+pro4.sh - not empty
+pro5.sh - not empty
+pro6.sh - not empty
+pro8.sh - not empty
+text.txt - not empty
+
+9)  Write a shell script to display 
+the name of all the executable file 
+from the current directory.
+ans..
+for i in *
+do
+        if [ -x $i ]
+        then
+                count=`expr $count + 1`
+        fi
+echo "number of executable files 
+ are $count"
+done
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro9.sh
+number of executable files are
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+number of executable files are 1
+
+11 )Write a shell script to find number of ordinary files and directory files.
+ans..
+for i in *
+do
+        if [ -d $i ]
+        then
+                count=`expr $count + 1`
+        else
+                countf=`expr $countf + 1`
+        fi
+done
+echo "number of directories $count "
+echo "number of files $countf"
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro11.sh
+number of directories 1
+number of files 11
+
+13) Write a shell script that takes a filename from the user and checks whether it is a 
+directory file or not.
+ If it is a directory, then the script should display the contents of the directory.
+ If it is not a directory file then script should display the message: “File is not a 
+directory file“
+ans..
+echo "Enter the file name"
+read fn
+
+if [ -d $fn ]
+then
+        ls -R $fn
+elif [ -f $fn ]
+then
+        cat $fn
+else
+        echo "file not a directory file"
+fi
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro13.sh
+Enter the file name
+demo2
+demo2:
+karan2.txt
+
+14 Write a shell script that takes a filename as an argument and checks if the file 
+exists and is executable.
+ If the file is executable then the shell script should display the message: 
+“Fileexists”
+ If the file does not exists and is not executable then the script should display the 
+message: “File does not exist or is notexecutable.”
+ans..
+echo "enter the file name"
+read fn
+
+if [ -f $fn -a -x $fn ]
+then
+        echo "fileexists"
+else
+        echo "file not exite or is not executable"
+fi
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro14.sh
+enter the file name
+karan.txt
+fileexists
+
+15) Write a shell script that displays all subdirectories
+in current working directory.
+ans..
+echo "list of directories"
+for i in *
+do
+        if [ -d $i ]
+        then
+                echo $i
+        fi
+done
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro15.sh
+list of directories
+demo2
+fy
+
+16) Write a shell script that calculates the number of ordinary and directory files in 
+your current working directory.
+ans..
+for i in *
+do
+        if [ -d $i ]
+        then
+                count=`expr $count + 1`
+        else
+                countf=`expr $countf + 1`
+        fi
+done
+echo "number of directories $count "
+echo "number of files $countf"
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro11.sh
+number of directories 1
+number of files 11
+
+17) Write a shell script that accepts 2 filenames and checks if both exists; if both exist 
+then append the content of the second file into the first file.
+ans..
+echo "enter first file name"
+read f1
+echo "enter second file name"
+read f2
+
+if [ -f $f1 -a -f $f2 ]
+then
+        cat $f1>>$f2
+else
+        echo "file does not exit"
+fi
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro17.sh
+enter first file name
+text.txt
+enter second file name
+f1.txt
+karan@DESKTOP-2RM7GGK:~/syllabus$ cat text.txt
+name:karan
+age:100
+address:amdavad
+karan@DESKTOP-2RM7GGK:~/syllabus$ cat f1.txt
+hello
+
+name:karan
+age:100
+address:amdavad
+
+18 Write a shell script that takes the name of two files as arguments and performs 
+the following:
+i. Displays the message :
+“Displaying the contents of file :( first argument)”
+and displays the contents page wise.
+ii. Copies the contents of the first argument to second argument.
+iii. Finally displays the message: “File copied successfully.”
+ans..
+echo "enter the two file name"
+read f1 f2
+
+echo "dispaly the content of first file"
+cat $f1
+
+echo "copy thecontent of file "
+cp $f1 $f2
+cat $f1
+cat $f2
+echo "file copied successfully"
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro18.sh
+enter the two file name
+f1.txt number.txt
+dispaly the content of first file
+hello
+
+name:karan
+age:100
+address:amdavad
+copy thecontent of file
+hello
+
+name:karan
+age:100
+address:amdavad
+hello
+
+name:karan
+age:100
+address:amdavad
+file copied successfully
+
+20) Write a shell script that displays the following menu and acts accordingly
+1. Concatenates twostrings
+2. Renames afile
+3. Deletes afile.
+4. Copy the file to specific location
+
+ans..
+echo -e "1.concatenates string /n 2.reanme file /n 3. delete file /n 4.copy file"
+echo "choice"
+read ch
+
+case $ch in
+        1) echo "enter first string"
+           read str1
+           echo "enter second string"
+           read str2
+           echo "concate two string $str1 $str2";;
+        2) echo "enter old file"
+           read ofn
+           echo "enter new name"
+           read nfn
+           mv $ofn $nfn;;
+        3) echo "enter delete file name"
+           read fn
+           rm $fn;;
+        4) echo "enter file name"
+           read fn
+           echo "enter file2 name"
+           read fn2
+           cp $fn $fn2;;
+        *) echo "invalid number";;
+esac
+
+output..
+
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro20.sh
+-e 1.concatenates string /n 2.reanme file /n 3. delete file /n 4.copy file
+choice
+1
+enter first string
+karan
+enter second string
+gosia
+concate two string karan gosia
+
+21). Write a shell script to change the suffix of all your *.txt files to .dat.
+
+26) Write a shell script that displays the following menu
+▪ List homedirectory
+▪ Date
+▪ Print workingdirectory
+▪ Users loggedin
+
+ans..
+
+echo "display home directory"
+echo "$HOME"
+
+echo "date `date`"
+echo "working dir `pwd`"
+echo "loged in user"
+who | wc -l
+
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro26.sh
+display home directory
+/home/karan
+date Mon Jan  9 15:12:12 IST 2023
+working dir /home/karan/syllabus
+loged in user
+0
+
+27) Write a shell script that displays all hidden files in current directory.
+ans..
+echo "show hidden files"
+ls -a
+
+output..
+karan@DESKTOP-2RM7GGK:~/syllabus$ sh pro27.sh
+show hidden files
+ .               .pro6.sh.swp   fy         pro17.sh   pro26.sh   pro8.sh
+ ..             '\'             pro11.sh   pro18.sh   pro27.sh   pro9.sh
+ .hid.txt        demo2          pro13.sh   pro2.sh    pro4.sh    text.txt.dat
+ .pro15.sh.swp   dp.txt.dat     pro14.sh   pro20.sh   pro5.sh
+ .pro6.sh.swo    f1.txt.dat     pro15.sh   pro21.sh   pro6.sh
+
+
+
+

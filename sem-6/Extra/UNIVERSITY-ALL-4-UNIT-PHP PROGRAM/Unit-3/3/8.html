@@ -1,0 +1,35 @@
+<!-- 8. Write a program that checks if a particular stuId already exists 
+	in the student(stuId,stu_name,mob,country) table or not. If stuId exists 
+	then display a message "User Already Exists. Try another stuId". If it does 
+	not exist then add the data in the student table.Implement using AJAX. -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+Id:<input type="text" id="id" placeholder="Enter ID:"><br>
+Name:<input type="text" id="name" placeholder="Enter Name:" ><br>
+Country:<input type="text" id="cou" placeholder="Enter Country:" ><br>
+Pno:<input type="text" id="pno" placeholder="Enter Mobile No:" ><br>
+<input type="submit" onclick="check()"><br>
+<p id="demo"></p>
+</body>
+<script>
+	const check = ()=>{
+	 const id = document.getElementById("id").value
+	 const name = document.getElementById("name").value
+	 const cou = document.getElementById("cou").value
+	 const pno = document.getElementById("pno").value
+	 const xml = new XMLHttpRequest()
+	  xml.open("GET","8.php?id="+id+"&name="+name+"&cou="+cou+"&pno="+pno,true)
+        xml.send();
+        xml.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+		 document.getElementById("demo").innerHTML=this.responseText;
+		}
+	}
+	}
+</script>
+</html>
